@@ -1,7 +1,7 @@
       AREA FACTORIAL,CODE,READONLY
 START
-    MOV R0,#10  ; R0 = 10
-    MOV R1,R0   ; R1 = 10
+    MOV R0,#5  ; R0 = 5
+    MOV R1,R0   ; R1 = R0
 
 AGAIN
     SUB R0,#1   ; R0 = R0 - 1
