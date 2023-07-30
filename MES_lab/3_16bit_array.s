@@ -10,7 +10,6 @@ AGAIN
     BNE AGAIN
     LDR R3,=RESULT
     STR R2,[R3]
-    B AGAIN
 
 LOOP B LOOP
 
