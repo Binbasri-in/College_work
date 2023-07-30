@@ -6,7 +6,7 @@ START
 AGAIN
     MUL R1,R0,R1   ; R1 = R0 * R1
     SUB R0,#1   ; R0 = R0 - 1
-    CMP R0,#0   ; R0 - 0 == 0?
+    CMP R0,#1   ; R0 - 0 == 0?
     BNE AGAIN   ; if not equal, jump to AGAIN
 
 LOOP B LOOP ; infinite loop
