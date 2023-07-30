@@ -40,4 +40,10 @@ RLOOP
     BNE REPEAT              ;if R5 is not equal to CNT then jump to REPEAT
 
 STOP   B STOP               ;infinite loop
+
+ARRAY DCD 0x00000004,0x00000006,0x00000005,0x00000002,0x00000001
+ARRAYEND DCD 0
+
+    AREA ARR,DATA,READWRITE
+ORDER
     END
