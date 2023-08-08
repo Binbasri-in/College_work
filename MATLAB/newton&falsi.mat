@@ -1,0 +1,72 @@
+Program_6: Solution of algebraic and transcendental equations
+by Regula-Falsi and Newton- Raphson methods
+
+<!--    QUESTION    -->
+Find the real root of the equation sinx + cosx + ex
+= 8 which lies 
+between 2 and 3.
+
+<!--    CODE    -->
+f=input('Enter the function');
+
+a=input('Enter the left side of your root guess:'); b=input('Enter right side of your root guess:');
+
+n=input('Enter the no of iterations: '); e=input('Enter your desired tolerance');
+
+if f(a) f(b) <0 && a<b for i=1:n
+
+c=(a*f(b)-bf(a))/(f(b)-f(a))
+
+if f(a) f(c)<0 b=c
+
+else f(b) f(c)<0
+
+a=c
+
+end
+end
+end
+
+<!--    QUESTION    -->
+Find the real root of y=cos(x) lying between 0 and .
+
+<!--    CODE    -->
+f = @(x) (cos(x));
+fd = @(x) (-sin(x));
+p0 = input('Enter initial approximaation: ');
+n = input('Enter no. of iterations, n: ');
+tol = input('Enter tolerance, tol: ');
+i = 1;
+while i <= n
+ d=f(p0)/fd(p0);
+ p0 = p0 - d;
+ if abs(d) < tol
+ fprintf('\nApproximate solution xn= %0.4f \n\n',p0);
+ break;
+ else
+ 
+i = i+1;
+ end
+end
+
+<!--    QUESTION    -->
+Find the real root of x sin (x)+cos (x)=0 near .
+
+<!--    CODE    -->
+f = @(x) (x* sin(x)+cos(x));
+fd = @(x) (x* cos (x));
+p0 = input('Enter initial approximaation: ');
+n = input('Enter no. of iterations, n: ');
+tol = input('Enter tolerance, tol: ');
+i = 1;
+while i <= n
+ d=f(p0)/fd(p0);
+ p0 = p0 - d;
+ if abs(d) < tol
+ fprintf('\nApproximate solution xn= %0.6f \n\n',p0);
+ break;
+ else
+ 
+i = i+1;
+ end
+end

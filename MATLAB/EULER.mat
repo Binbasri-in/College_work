@@ -1,0 +1,82 @@
+Program-1:Solution of ODE of first order and first degree by Modified Euler’s method.
+<!--    QUESTION    -->
+
+Solve dy/dx=log_e (x+y),y(1)=2 by Modified Euler’s method for y(1.4)  taking h=0.1. Display  output for each value of x up to 1.4. Perform 3 modifications at every step.
+
+<!--    CODE    -->
+%Euler's Modified
+clear
+clc
+f =@(x,y) log(x+y);
+x= 1:0.1:1.4;
+y(1)=2;
+h=0.1;
+for i=2:length(x)
+y(i)=y(i-1)+h*f(x(i-1),y(i-1));
+y1(i,1)=y(i);
+for j=2:4
+  y1(i,j)=y(i-1)+h/2*(f(x(i),y1(i,j-1))+f(x(i-1),y(i-1)));
+end
+  y(i)=y1(i,4);
+end 
+x=[x(:)];
+y=[y(:)];
+disp("      x        y")
+z=[x y];
+disp(z)
+
+<!--    QUESTION    -->
+Solve dy/dx=1+y/x,y(1)=2 by Modified Euler’s method for y(1.4)  taking h=0.1. Display output for  each value of x up to 1.4. Perform 3 modifications at every step.
+
+
+<!--    CODE    -->
+%Euler's Modified
+clear
+clc
+f =@(x,y) 1+(y/x);
+x= 1:0.1:1.4;
+y(1)=2;
+h=0.1;
+for i=2:length(x)
+y(i)=y(i-1)+h*f(x(i-1),y(i-1));
+y1(i,1)=y(i);
+for j=2:4
+  y1(i,j)=y(i-1)+h/2*(f(x(i),y1(i,j-1))+f(x(i-1),y(i-1)));
+end
+y(i)=y1(i,4);
+end 
+x=[x(:)];
+y=[y(:)];
+disp("      x        y")
+z=[x y];
+disp(z)
+
+
+<!--    QUESTION    -->
+    Solve dy/dx=3x+y/2,y(1)=2 by Modified Euler’s method for y(1.4)taking h=0.1.  
+      Display output 
+               for each value of x upto 1.4. Perform 3 modifications at every step.
+
+
+<!--    CODE    -->
+%Euler's Modified
+clear
+clc
+f =@(x,y) 3*x+(y/2);
+x= 1:0.1:1.4;
+y(1)=2;
+h=0.1;
+for i=2:length(x)
+y(i)=y(i-1)+h*f(x(i-1),y(i-1));
+y1(i,1)=y(i);
+for j=2:4
+  y1(i,j)=y(i-1)+h/2*(f(x(i),y1(i,j-1))+f(x(i-1),y(i-1)));
+end
+  y(i)=y1(i,4);
+end 
+x=[x(:)];
+y=[y(:)];
+disp("      x        y")
+z=[x y];
+disp(z)
+
