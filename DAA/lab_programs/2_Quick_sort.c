@@ -10,6 +10,7 @@ void swap(int *a, int *b) {
 
 void quicksort(int a[], int first, int last) {
     if (first < last) {
+        // start partition
         int pivot = first;
         int i = first + 1;
         int j = last;
@@ -22,6 +23,9 @@ void quicksort(int a[], int first, int last) {
                 swap(&a[i], &a[j]);
         }
         swap(&a[pivot], &a[j]);
+        // end partition
+
+        // divide
         quicksort(a, first, j - 1);
         quicksort(a, j + 1, last);
     }
@@ -31,9 +35,8 @@ int main() {
     int n;
     printf("Enter the number of elements: ");
     scanf("%d", &n);
-
     int a[n];
-    printf("Enter %d array elements:\n", n);
+  
     for (int i = 0; i < n; i++)
         a[i] = rand() % 5000;
 
@@ -41,12 +44,8 @@ int main() {
     quicksort(a, 0, n - 1);
     clock_t end = clock();
 
-    double cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
-    cpu_time_used *= 1.0e9;  // Convert to nanoseconds
+    double cpu_time_used = (((double)(end - start)) / CLOCKS_PER_SEC)*1.0e9;
 
-    printf("Sorted array elements:\n");
-    for (int i = 0; i < n; i++)
-        printf("%d\t", a[i]);
     printf("\nCpu time: %.2f ns\n", cpu_time_used);
 
     return 0;
