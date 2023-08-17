@@ -18,8 +18,6 @@ Sub CreatePresentation()
                    "- Selecting a name is a significant decision, and our web app aims to make this process more informed and satisfying."
     pptSlide.Shapes(2).TextFrame.TextRange.Text = slideContent
     
-    ' Continue adding slides and content similarly for other sections
-    
     ' Slide 2: Objectives
     Set pptSlide = pptPresentation.Slides.Add(2, ppLayoutText)
     slideContent = "Project Objectives:" & vbCrLf & _
@@ -29,25 +27,40 @@ Sub CreatePresentation()
     pptSlide.Shapes(2).TextFrame.TextRange.Text = slideContent
     
     ' Slide 3: Literature Survey
-    ' ... (Add code to create Slide 3)
+    Set pptSlide = pptPresentation.Slides.Add(3, ppLayoutText)
+    slideContent = "Understanding the Landscape:" & vbCrLf & _
+                   "- Research indicates that personalized name suggestions and insights enhance the name selection experience for parents." & vbCrLf & _
+                   "- Existing solutions focus on name meanings, origins, and popularity but lack personalized recommendations and statistical insights."
+    pptSlide.Shapes(2).TextFrame.TextRange.Text = slideContent
     
     ' Slide 4: Proposed System
-    ' ... (Add code to create Slide 4)
+    Set pptSlide = pptPresentation.Slides.Add(4, ppLayoutText)
+    slideContent = "Introducing the Baby Name Selection Web App:" & vbCrLf & _
+                   "- Our web app addresses the challenges parents face in selecting a baby name by offering data-driven insights and personalized suggestions." & vbCrLf & _
+                   "- Parents can now make an informed decision while enjoying an interactive and engaging experience."
+    pptSlide.Shapes(2).TextFrame.TextRange.Text = slideContent
     
     ' Slide 5: System Architecture and Diagrams
-    ' ... (Add code to create Slide 5)
+    Set pptSlide = pptPresentation.Slides.Add(5, ppLayoutText)
+    slideContent = "System Architecture and Diagrams:" & vbCrLf & _
+                   "- Context Model: Illustrates the interaction between the web app and its users and environment." & vbCrLf & _
+                   "- Interaction Model: Visualizes user actions and app responses through a Use Case Diagram or Sequence Diagram."
+    pptSlide.Shapes(2).TextFrame.TextRange.Text = slideContent
     
     ' Slide 6: Behavioral Models
-    ' ... (Add code to create Slide 6)
+    Set pptSlide = pptPresentation.Slides.Add(6, ppLayoutText)
+    slideContent = "Understanding App Behavior:" & vbCrLf & _
+                   "- Data Flow Model: Demonstrates the flow of data within the app, from input of criteria to generation of suggestions and insights." & vbCrLf & _
+                   "- State Machine Model: If integrated with hardware, displays the transitions between states in the app's behavior."
+    pptSlide.Shapes(2).TextFrame.TextRange.Text = slideContent
     
     ' Slide 7: Implementation
-    ' ... (Add code to create Slide 7)
+    Set pptSlide = pptPresentation.Slides.Add(7, ppLayoutText)
+    slideContent = "Implementation Details::" & vbCrLf & _
+                   "- User Requirements: Users expect name suggestions, statistics, and the ability to share suggestions." & vbCrLf & _
+                   "- System Requirements: Technical specifications, including backend (Spring Boot), frontend, and database components."
+    pptSlide.Shapes(2).TextFrame.TextRange.Text = slideContent
     
-    ' Slide 8: Validation
-    ' ... (Add code to create Slide 8)
-    
-    ' Slide 9: Future Improvement and Enhancement
-    ' ... (Add code to create Slide 9)
     
     ' Clean up
     Set pptSlide = Nothing
