@@ -1,0 +1,56 @@
+Sub CreatePresentation()
+    Dim pptApp As Object
+    Dim pptPresentation As Object
+    Dim pptSlide As Object
+    Dim slideContent As String
+    
+    ' Create a new PowerPoint application
+    Set pptApp = CreateObject("PowerPoint.Application")
+    pptApp.Visible = True
+    
+    ' Add a new presentation
+    Set pptPresentation = pptApp.Presentations.Add
+    
+    ' Slide 1: Introduction
+    Set pptSlide = pptPresentation.Slides.Add(1, ppLayoutText)
+    slideContent = "Welcome to the Presentation: Baby Name Selection Web App" & vbCrLf & _
+                   "- As parents embark on the journey of choosing a name for their baby, we present a solution that empowers them with insights and suggestions." & vbCrLf & _
+                   "- Selecting a name is a significant decision, and our web app aims to make this process more informed and satisfying."
+    pptSlide.Shapes(2).TextFrame.TextRange.Text = slideContent
+    
+    ' Continue adding slides and content similarly for other sections
+    
+    ' Slide 2: Objectives
+    Set pptSlide = pptPresentation.Slides.Add(2, ppLayoutText)
+    slideContent = "Project Objectives:" & vbCrLf & _
+                   "1. Provide parents with comprehensive statistics and visualizations for chosen names." & vbCrLf & _
+                   "2. Suggest a personalized list of names based on various criteria." & vbCrLf & _
+                   "3. Enable sharing of name suggestions with friends and family, fostering a collaborative decision-making process."
+    pptSlide.Shapes(2).TextFrame.TextRange.Text = slideContent
+    
+    ' Slide 3: Literature Survey
+    ' ... (Add code to create Slide 3)
+    
+    ' Slide 4: Proposed System
+    ' ... (Add code to create Slide 4)
+    
+    ' Slide 5: System Architecture and Diagrams
+    ' ... (Add code to create Slide 5)
+    
+    ' Slide 6: Behavioral Models
+    ' ... (Add code to create Slide 6)
+    
+    ' Slide 7: Implementation
+    ' ... (Add code to create Slide 7)
+    
+    ' Slide 8: Validation
+    ' ... (Add code to create Slide 8)
+    
+    ' Slide 9: Future Improvement and Enhancement
+    ' ... (Add code to create Slide 9)
+    
+    ' Clean up
+    Set pptSlide = Nothing
+    Set pptPresentation = Nothing
+    Set pptApp = Nothing
+End Sub
