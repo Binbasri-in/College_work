@@ -43,8 +43,6 @@ void bubble_sort(int a[], int n) {
 }
 
 int main() {
-    srand(time(NULL));
-
     int n;
     printf("Enter the number of elements: ");
     scanf("%d", &n);
