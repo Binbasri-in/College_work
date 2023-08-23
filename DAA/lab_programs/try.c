@@ -1,65 +1,89 @@
-/*
-Write C/C++ programs to sort a given set of n integer elements using Quick Sort method and
-compute its time Complexity. Run the program for varied values of n> 5000 and record the time
-taken to sort. Plot a graph of the time taken versus non graph sheet. The elements can be read
-from a file or can be generated using the random number generator. Demonstrate using C/C++
-how the divide-and-conquer method works along with its time complexity analysis: worst case,
-average case and best case.
-*/
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-
-void swap(int *a, int *b)
+#include<stdio.h>
+struct jobseq{
+    int num;
+    int deadline;
+    int profit;
+};
+void swap(struct jobseq j[],int i,int k)
 {
-	int temp = *a;
-	*a = *b;
-	*b = temp;
+    int temp=j[i].profit;
+    j[i].profit=j[k].profit;
+    j[k].profit=temp;
+   temp=j[i].num;
+    j[i].num=j[k].num;
+    j[k].num=temp;
+    temp=j[i].deadline;
+    j[i].deadline=j[k].deadline;
+    j[k].deadline=temp;
+}
+int partition(struct jobseq j[],int low,int high)
+{
+    int pivot=j[high].profit,i=low-1,k;
+
+    for(k=low;k<=high-1;k++)
+    {
+        if(j[k].profit<pivot)
+        {
+            i++;
+            swap(j,i,k);
+        }
+    }
+	swap(j, i + 1, high);
+	return (i+1);
+
+
 }
 
-void quick(int arr[], int l, int h)
+void quicksort(struct jobseq j[],int low,int high)
 {
-	if (l < h)
-	{
-		int pivot = arr[l];
-		int i = l+1, j = h;
-
-		while (i <= j)
-		{
-			while (arr[i] <= pivot && i <= h) i++;
-			while (arr[i] > pivot) j--;
-			if (i<j) swap(&arr[i], &arr[j]);
-		}
-		swap(&arr[l], &arr[j]);
-
-		quick(arr, l, j-1);
-		quick(arr, j+1, h);
-	}
+    while(low<high)
+    {
+        int pi=partition(j,low,high);
+        quicksort(j,low,pi-1);
+        quicksort(j,pi+1,high);
+    }
 }
 
-int main() {
-    clock_t start, end;
-    double cpu_time;
+void main(){
+    int n,i,count,value;
+    printf("Enter the number of jobs\n");
+    scanf("%d",&n);
+    struct jobseq j[n];
+    printf("Enter the job number with dedline and profit\n");
 
-    int n;
-
-    printf("Enter size: ");
-    scanf("%d", &n);
-
-    int arr[n];
-
-    for (int i = 0; i < n; i++) {
-        arr[i] = rand() % 10000;
+    for(i=0;i<n;i++)
+    {
+        scanf("%d %d %d",&j[i].num,&j[i].deadline,&j[i].profit);
     }
 
+    quicksort(j,0,n-1);
 
-    start = clock();
-    quick(arr, 0, n - 1);
-    end = clock();
+    int jobsequence[j[0].deadline];
 
-    cpu_time = ((double)(end - start) / CLOCKS_PER_SEC) * 1e9;
+    for(count=0;count<n;count++){
+        jobsequence[count]=0;
+    }
+    i=0;
+    for(count=0;count<n;count++)
+    {
+        value=j[i].deadline;
 
-    printf("CPU Time: %5.f nanoseconds\n", cpu_time);
+        while(value>=0)
+        {
+            if(jobsequence[value-1]==0)
+            {
+                jobsequence[value-1]=j[i].num;
+                break;
+            }
+            value=value-1;
+        }
+        i++;
+        
+    }
 
-    return 0;
+    printf("Job sequence\n");
+    for(i=0;i<j[0].deadline;i++)
+    {
+        printf("J%d-->",jobsequence[i]);
+    }
 }
