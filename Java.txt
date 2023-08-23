@@ -1,0 +1,69 @@
+Sub CreatePresentation()
+    Dim pptApp As Object
+    Dim pptPresentation As Object
+    Dim pptSlide As Object
+    Dim slideContent As String
+    
+    ' Create a new PowerPoint application
+    Set pptApp = CreateObject("PowerPoint.Application")
+    pptApp.Visible = True
+    
+    ' Add a new presentation
+    Set pptPresentation = pptApp.Presentations.Add
+    
+    ' Slide 1: Introduction
+    Set pptSlide = pptPresentation.Slides.Add(1, ppLayoutText)
+    slideContent = "Welcome to the Presentation: Baby Name Selection Web App" & vbCrLf & _
+                   "- As parents embark on the journey of choosing a name for their baby, we present a solution that empowers them with insights and suggestions." & vbCrLf & _
+                   "- Selecting a name is a significant decision, and our web app aims to make this process more informed and satisfying."
+    pptSlide.Shapes(2).TextFrame.TextRange.Text = slideContent
+    
+    ' Slide 2: Objectives
+    Set pptSlide = pptPresentation.Slides.Add(2, ppLayoutText)
+    slideContent = "Project Objectives:" & vbCrLf & _
+                   "1. Provide parents with comprehensive statistics and visualizations for chosen names." & vbCrLf & _
+                   "2. Suggest a personalized list of names based on various criteria." & vbCrLf & _
+                   "3. Enable sharing of name suggestions with friends and family, fostering a collaborative decision-making process."
+    pptSlide.Shapes(2).TextFrame.TextRange.Text = slideContent
+    
+    ' Slide 3: Literature Survey
+    Set pptSlide = pptPresentation.Slides.Add(3, ppLayoutText)
+    slideContent = "Understanding the Landscape:" & vbCrLf & _
+                   "- Research indicates that personalized name suggestions and insights enhance the name selection experience for parents." & vbCrLf & _
+                   "- Existing solutions focus on name meanings, origins, and popularity but lack personalized recommendations and statistical insights."
+    pptSlide.Shapes(2).TextFrame.TextRange.Text = slideContent
+    
+    ' Slide 4: Proposed System
+    Set pptSlide = pptPresentation.Slides.Add(4, ppLayoutText)
+    slideContent = "Introducing the Baby Name Selection Web App:" & vbCrLf & _
+                   "- Our web app addresses the challenges parents face in selecting a baby name by offering data-driven insights and personalized suggestions." & vbCrLf & _
+                   "- Parents can now make an informed decision while enjoying an interactive and engaging experience."
+    pptSlide.Shapes(2).TextFrame.TextRange.Text = slideContent
+    
+    ' Slide 5: System Architecture and Diagrams
+    Set pptSlide = pptPresentation.Slides.Add(5, ppLayoutText)
+    slideContent = "System Architecture and Diagrams:" & vbCrLf & _
+                   "- Context Model: Illustrates the interaction between the web app and its users and environment." & vbCrLf & _
+                   "- Interaction Model: Visualizes user actions and app responses through a Use Case Diagram or Sequence Diagram."
+    pptSlide.Shapes(2).TextFrame.TextRange.Text = slideContent
+    
+    ' Slide 6: Behavioral Models
+    Set pptSlide = pptPresentation.Slides.Add(6, ppLayoutText)
+    slideContent = "Understanding App Behavior:" & vbCrLf & _
+                   "- Data Flow Model: Demonstrates the flow of data within the app, from input of criteria to generation of suggestions and insights." & vbCrLf & _
+                   "- State Machine Model: If integrated with hardware, displays the transitions between states in the app's behavior."
+    pptSlide.Shapes(2).TextFrame.TextRange.Text = slideContent
+    
+    ' Slide 7: Implementation
+    Set pptSlide = pptPresentation.Slides.Add(7, ppLayoutText)
+    slideContent = "Implementation Details::" & vbCrLf & _
+                   "- User Requirements: Users expect name suggestions, statistics, and the ability to share suggestions." & vbCrLf & _
+                   "- System Requirements: Technical specifications, including backend (Spring Boot), frontend, and database components."
+    pptSlide.Shapes(2).TextFrame.TextRange.Text = slideContent
+    
+    
+    ' Clean up
+    Set pptSlide = Nothing
+    Set pptPresentation = Nothing
+    Set pptApp = Nothing
+End Sub
