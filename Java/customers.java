@@ -3,31 +3,25 @@
 // and display as <name, dd, mm, yyyy> using StringTokenizer class considering the delimiter
 // character as “/”.
 
-import java.util.*;
+import java.util.Scanner;
+import java.util.StringTokenizer;
 
-class Customer {
-    String name, dob;
-
-    void getDetails() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the name: ");
-        name = sc.nextLine();
-        System.out.println("Enter the date of birth: ");
-        dob = sc.nextLine();
-    }
-
-    void display() {
-        StringTokenizer st = new StringTokenizer(dob, "/");
-        System.out.println("Name: " + name);
-        System.out.println("Date of birth: ");
-        while (st.hasMoreTokens()) {
-            System.out.println(st.nextToken());
+public class Main{
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        
+        String name;
+        System.out.println("Enter the name & DOB in the format <name,dd/mm/yyyy>");
+        name = scan.next();
+        
+        StringTokenizer st = new StringTokenizer(name,"/");
+        int count = st.countTokens();
+        for (int i =1; i<=count && st.hasMoreTokens();i++)
+        {
+            System.out.print(st.nextToken());
+            if(i<count)
+            System.out.print(",");
         }
-    }
-
-    public static void main(String[] args) {
-        Customer c = new Customer();
-        c.getDetails();
-        c.display();
+        scan.close();
     }
 }
