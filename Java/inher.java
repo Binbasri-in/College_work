@@ -3,118 +3,88 @@
 // Contract (period). Write a Java program to read and display at least 3 staff objects of all three
 // categories.
 
-import java.util.*;
-
-class Staff {
-    String staffId, name, phone;
-    double salary;
-
-    void getDetails() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the Staff ID: ");
-        staffId = sc.nextLine();
-        System.out.println("Enter the Name: ");
-        name = sc.nextLine();
-        System.out.println("Enter the Phone: ");
-        phone = sc.nextLine();
-        System.out.println("Enter the Salary: ");
-        salary = sc.nextDouble();
+class Staff
+{
+    private int StaffId;
+    private String Name;
+    private String Phone;
+    private long Salary;
+    public Staff(int staffId,String name,String phone,long salary)
+    {
+        StaffId = staffId;
+        Name = name;Phone = phone;
+        Salary = salary;
     }
-
-    void display() {
-        System.out.println("Staff ID: " + staffId);
-        System.out.println("Name: " + name);
-        System.out.println("Phone: " + phone);
-        System.out.println("Salary: " + salary);
+    public void Display()
+    {
+        System.out.print("\t"+StaffId+"\t"+Name+"\t\t"+Phone+"\t\t"+Salary);
     }
 }
 
-class Teaching extends Staff {
-    String domain, publications;
-
-    void getDetails() {
-        super.getDetails();
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the Domain: ");
-        domain = sc.nextLine();
-        System.out.println("Enter the Publications: ");
-        publications = sc.nextLine();
+class Teaching extends Staff
+{
+    private String Domain;
+    private int Publications;
+    public Teaching(int staffId, String name, String phone,long salary, String domain, int publications)
+    {
+        super(staffId, name, phone, salary);
+        Domain = domain;
+        Publications = publications;
     }
 
-    void display() {
-        super.display();
-        System.out.println("Domain: " + domain);
-        System.out.println("Publications: " + publications);
-    }
-}
-
-class Technical extends Staff {
-    String skills;
-
-    void getDetails() {
-        super.getDetails();
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the Skills: ");
-        skills = sc.nextLine();
-    }
-
-    void display() {
-        super.display();
-        System.out.println("Skills: " + skills);
+    public void Display()
+    {
+        super.Display();
+        System.out.print("\t\t"+Domain+"\t\t"+Publications+"\t\t"+"--"+"\t"+"--");
     }
 }
 
-class Contract extends Staff {
-    int period;
+class Technical extends Staff
+{
+    private String Skills;
+    public Technical(int staffId, String name, String phone,long salary, String skills)
+    {
+        super(staffId, name, phone, salary);
+        Skills = skills;
+    }
+    public void Display()
+    {
+        super.Display();
+        System.out.print("\t\t--"+"\t\t"+"--"+"\t"+Skills+"\t"+"--");
+    }
+}
 
-    void getDetails() {
-        super.getDetails();
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the Period: ");
-        period = sc.nextInt();
+class Contract extends Staff
+{
+    private int Period;
+
+    public Contract(int staffId, String name, String phone, long salary, int period)
+    {
+        super(staffId, name, phone, salary);this.Period = period;
     }
 
-    void display() {
-        super.display();
-        System.out.println("Period: " + period);
+    public void Display()
+    {
+        super.Display();
+        System.out.print("\t\t--"+"\t\t"+"--"+"\t\t"+"--"+"\t"+Period);
     }
 }
 
-class inher {
-    public static void main(String[] args) {
-        int n;
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the number of staff: ");
-        n = sc.nextInt();
-        Staff[] s = new Staff[n];
-        for (int i = 0; i < n; i++) {
-            System.out.println("Enter the details of staff " + (i + 1));
-            System.out.println("Enter the category of staff: ");
-            System.out.println("1. Teaching");
-            System.out.println("2. Technical");
-            System.out.println("3. Contract");
-            int ch = sc.nextInt();
-            switch (ch) {
-                case 1:
-                    s[i] = new Teaching();
-                    break;
-                case 2:
-                    s[i] = new Technical();
-                    break;
-                case 3:
-                    s[i] = new Contract();
-                    break;
-                default:
-                    System.out.println("Invalid choice!");
-                    i--;
-                    continue;
-            }
-            s[i].getDetails();
-        }
-        System.out.println("The details of staff are: ");
-        for (int i = 0; i < n; i++) {
-            System.out.println("The details of staff " + (i + 1));
-            s[i].display();
-        }
+class Staffdetails{
+    public static void main(String[] args)
+    {
+    Staff staff[]=new Staff[3];
+    staff[0]=new
+    Teaching(0001,"Narendr","271173",90000,"CSE",3);
+    staff[1]=new
+    Technical(0002,"Ara","271172",2000,"Server Admin");
+    staff[2]=new Contract(0003,"Rahul","271174",9000,3);
+    
+    System.out.println("StaffID\tName\t\tPhone\t\tSalary\t\tDomain\tPublication\tSkills\t\tPeriod");
+    for(int i=0;i<3;i++){
+        staff[i].Display();
+        System.out.println();
+    }
     }
 }
+
