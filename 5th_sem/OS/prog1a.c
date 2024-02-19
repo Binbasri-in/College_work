@@ -44,9 +44,9 @@ int main(void)
 // Enter arrive time, and burst time: 1 2
 // Enter arrive time, and burst time: 2 1
 
-//  Pname	ArrTime	BurTime	StartTime	TAT	FinishTime
-// 1	0	3	0	3	3
-// 2	1	2	3	4	5
-// 3	2	1	5	4	6
+//  Pname	ArrTime	BurTime	StartTime	TAT	    FinishTime
+//  1	    0	    3	    0	        3	    3
+//  2	    1	    2	    3	        4	    5
+//  3	    2	    1	    5	        4	    6
 // Average waiting time: 2.33
 // Average Turnaround time: 3.67
