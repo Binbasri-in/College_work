@@ -43,11 +43,8 @@ int main(void)
     // print the final result
     printf("\nPname\tBurTime\twaitTime\tTAT\n");
     for(i = 0; i < n; i++)
-    {
         printf("%d\t%d\t%d\t%d\n", p[i], bur[i], wt[i], tat[i]);
-        totwt += wt[i];
-        tottat += tat[i];
-    }
+        
     printf("Average waiting time: %.2f\n", (float)totwt/n);
     printf("Average Turnaround time: %.2f\n", (float)tottat/n);
 }
