@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Queue;
 import java.util.LinkedList;
 
-class main{
+class prog8a {
     public static void main(String args[]){
         int pages[] = { 7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2 };
         int capacity = 4;
